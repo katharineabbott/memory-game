@@ -40,11 +40,20 @@
  */
 
 let cards = document.querySelectorAll('.card');
+let activeCards = [];
 
 document.addEventListener("DOMContentLoaded", function(event) { 
     cards.forEach(function(card) {
         card.addEventListener("click", function(event) {
-           card.classList.add('open', 'show');
+            activeCards.push(card);
+           if (activeCards.length > 2) {
+              activeCards.forEach(function(card) {
+                card.classList.remove('open', 'show');
+              });
+              activeCards = [];
+           } else {
+              card.classList.add('open', 'show');
+           }
         });
     });
   });
