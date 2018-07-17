@@ -2,7 +2,14 @@
 * Create a list that holds all of your cards
 */
 
-//let deck = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-anchor", "fa fa-bolt", "fa fa-bolt", "fa fa-cube", "fa fa-cube", "fa fa-leaf", "fa fa-leaf", "fa fa-bicycle", "fa fa-bicycle", "fa fa-bomb", "fa fa-bomb"];
+let deck = ["fa fa-diamond", "fa fa-diamond", 
+"fa fa-paper-plane-o", "fa fa-paper-plane-o", 
+"fa fa-anchor", "fa fa-anchor", 
+"fa fa-bolt", "fa fa-bolt", 
+"fa fa-cube", "fa fa-cube", 
+"fa fa-leaf", "fa fa-leaf", 
+"fa fa-bicycle", "fa fa-bicycle", 
+"fa fa-bomb", "fa fa-bomb"];
 
 
 /*
@@ -41,27 +48,39 @@
 
 let cards = document.querySelectorAll('.card');
 let activeCards = [];
+let moves = 0;
+let moveCount = document.querySelector('.moves');
+let stars = document.querySelectorAll('.fa-star');
+
+function startGame () {}
+
+//startGame();
 
 document.addEventListener("DOMContentLoaded", function(event) { 
     cards.forEach(function(card) {
         card.addEventListener("click", function(event) {
-        card.classList.add('open', 'show');
-        activeCards.push(card);
-            if (activeCards.length === 2) {
-                setTimeout(function() {
+            if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match')) {
+                card.classList.add('open', 'show');
+                activeCards.push(card);
+                moves = moves + 1;
+                moveCount.innerText = moves;
+                if ((activeCards.length === 2) && (activeCards[0].childNodes[1].className === activeCards[1].childNodes[1].className)){
                     activeCards.forEach(function(card) {
                         card.classList.remove('open', 'show');
+                        card.classList.add('match');
                     });
-                activeCards = [];
-                }, 300);
-            } 
+                }
+                if (activeCards.length === 2) {
+                    setTimeout(function() {
+                        activeCards.forEach(function(card) {
+                            card.classList.remove('open', 'show');
+                        });
+                        activeCards = [];
+                    }, 350);   
+                } 
+            }  
         });
     });
 });
 
-function isMatch(card1, card2) {
-    if (card1 === card2) {
-    card.classList.add('match');
-    }
-}
 
