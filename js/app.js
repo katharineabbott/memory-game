@@ -52,7 +52,9 @@ let moves = 0;
 let moveCount = document.querySelector('.moves');
 let stars = document.querySelectorAll('.fa-star');
 
-function startGame () {}
+function startGame () {
+
+}
 
 //startGame();
 
@@ -90,6 +92,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 } 
                 else {
 
+                }
+                if ((cards[0].classList.contains('match')) && (cards[1].classList.contains('match')) && (cards[2].classList.contains('match')) && (cards[3].classList.contains('match')) && (cards[4].classList.contains('match')) && (cards[5].classList.contains('match')) && (cards[6].classList.contains('match')) && (cards[7].classList.contains('match')) && (cards[8].classList.contains('match')) && (cards[9].classList.contains('match')) && (cards[10].classList.contains('match')) && (cards[11].classList.contains('match')) && (cards[12].classList.contains('match')) && (cards[13].classList.contains('match')) && (cards[14].classList.contains('match')) && (cards[15].classList.contains('match'))) {
+                    alert("game won!");
                 }
             }  
         });
