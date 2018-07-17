@@ -78,6 +78,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         activeCards = [];
                     }, 350);   
                 } 
+                if (moves > 40) {
+                    stars[0].classList.remove('fa-star');
+                    stars[0].classList.add('fa-star-o');
+                } else if (moves > 20) {
+                    stars[1].classList.remove('fa-star');
+                    stars[1].classList.add('fa-star-o');
+                } else if (moves > 12) {
+                    stars[2].classList.remove('fa-star');
+                    stars[2].classList.add('fa-star-o');
+                } 
+                else {
+
+                }
             }  
         });
     });
