@@ -12,9 +12,9 @@ let deck = ["fa fa-diamond", "fa fa-diamond",
 "fa fa-bomb", "fa fa-bomb"];
 let activeCards = [];
 let moves = 0;
+let time = 0;
 
 document.addEventListener("DOMContentLoaded", function(event) { 
-    startGame();
     function startGame() {
         let cardDeck = document.querySelector('.deck');
         let cardHTML = shuffle(deck).map(function(card){
@@ -52,6 +52,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 card.classList.remove('open', 'show');
             });
             activeCards = [];
+            let cards = document.querySelectorAll('.card');
+            if(gameIsWon(cards)){
+                alert("Won");
+            }
         }, 350); 
     }
 
@@ -82,38 +86,47 @@ document.addEventListener("DOMContentLoaded", function(event) {
             if (activeCards.length === 2) {
                 notMatch();  
             } 
-            if ((cards[0].classList.contains('match')) && (cards[1].classList.contains('match')) && (cards[2].classList.contains('match')) && (cards[3].classList.contains('match')) && (cards[4].classList.contains('match')) && (cards[5].classList.contains('match')) && (cards[6].classList.contains('match')) && (cards[7].classList.contains('match')) && (cards[8].classList.contains('match')) && (cards[9].classList.contains('match')) && (cards[10].classList.contains('match')) && (cards[11].classList.contains('match')) && (cards[12].classList.contains('match')) && (cards[13].classList.contains('match')) && (cards[14].classList.contains('match')) && (cards[15].classList.contains('match'))) {
-                alert("game won!");
-            }
-            starRating();  
         }
     }
 
-    function registerCards(card) {
+    function gameIsWon(cards) {
+        return ((cards[0].classList.contains('match')) && (cards[1].classList.contains('match')) && (cards[2].classList.contains('match')) && (cards[3].classList.contains('match')) && (cards[4].classList.contains('match')) && (cards[5].classList.contains('match')) && (cards[6].classList.contains('match')) && (cards[7].classList.contains('match')) && (cards[8].classList.contains('match')) && (cards[9].classList.contains('match')) && (cards[10].classList.contains('match')) && (cards[11].classList.contains('match')) && (cards[12].classList.contains('match')) && (cards[13].classList.contains('match')) && (cards[14].classList.contains('match')) && (cards[15].classList.contains('match')))
+    }
+
+    function registerCards(cards) {
         cards.forEach(function(card) {
             card.addEventListener("click", function(event) {
-                  cardClick(card);
+                cardClick(card);
+                starRating();  
             });
         });
     }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    startGame();
     let cards = document.querySelectorAll('.card');
+    registerCards(cards);
+
+    //clearInterval(myVar);
+
     let moveCount = document.querySelector('.moves');
     let stars = document.querySelectorAll('.fa-star');
     let restartButton = document.querySelector('.restart');
+    let timer = document.querySelector('.timer');
 
     restartButton.addEventListener("click", function(){
         moves = 0;
         moveCount.innerText = moves;
+        let cards = document.querySelectorAll('.card');
         cards.forEach(function(card) {
             card.classList.remove('open', 'show', 'match');
         });
-        regsterCards(cards);
         startGame();
+        cards = document.querySelectorAll('.card');
+        registerCards(cards);
     });
-    
-    registerCards(cards);
-    
+        
 });
 
 
