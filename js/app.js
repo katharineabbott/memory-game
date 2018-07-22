@@ -13,6 +13,7 @@ let deck = ["fa fa-diamond", "fa fa-diamond",
 let activeCards = [];
 let moves = 0;
 let time = 0;
+let elapsedTime = 0;
 
 document.addEventListener("DOMContentLoaded", function(event) { 
     function startGame() {
@@ -102,6 +103,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
         });
     }
 
+    setInterval(function incrementTimer() {
+        let timer = document.querySelector('.timer');
+        elapsedTime = elapsedTime + 1;
+        if (elapsedTime%60 <= 9) {
+            timer.innerText = Math.floor(elapsedTime/60) + ":0" + (elapsedTime%60);
+        } else {
+            timer.innerText = Math.floor(elapsedTime/60) + ":" + (elapsedTime%60);
+        }
+    }, 1000);
+    
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     startGame();
@@ -113,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     let moveCount = document.querySelector('.moves');
     let stars = document.querySelectorAll('.fa-star');
     let restartButton = document.querySelector('.restart');
-    let timer = document.querySelector('.timer');
+    
 
     restartButton.addEventListener("click", function(){
         moves = 0;
