@@ -1,7 +1,3 @@
-/*
-* Create a list that holds all of your cards
-*/
-
 let deck = ["fa fa-diamond", "fa fa-diamond", 
 "fa fa-paper-plane-o", "fa fa-paper-plane-o", 
 "fa fa-anchor", "fa fa-anchor", 
@@ -56,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             let cards = document.querySelectorAll('.card');
             if(gameIsWon(cards)){
                 alert("Won");
+                window.clearInterval(setInterval);
             }
         }, 350); 
     }
@@ -113,13 +110,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
     }, 1000);
     
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     startGame();
     let cards = document.querySelectorAll('.card');
     registerCards(cards);
-
-    //clearInterval(myVar);
 
     let moveCount = document.querySelector('.moves');
     let stars = document.querySelectorAll('.fa-star');
@@ -127,6 +121,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     
 
     restartButton.addEventListener("click", function(){
+        elapsedTime = -1;
         moves = 0;
         moveCount.innerText = moves;
         let cards = document.querySelectorAll('.card');
@@ -136,6 +131,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
         startGame();
         cards = document.querySelectorAll('.card');
         registerCards(cards);
+        stars[0].classList.remove('fa-star-o');
+        stars[0].classList.add('fa-star');
+        stars[1].classList.remove('fa-star-o');
+        stars[1].classList.add('fa-star');
+        stars[2].classList.remove('fa-star-o');
+        stars[2].classList.add('fa-star');
+        
+
     });
         
 });
