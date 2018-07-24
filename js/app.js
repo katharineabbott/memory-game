@@ -10,6 +10,9 @@ let activeCards = [];
 let moves = 0;
 let time = 0;
 let elapsedTime = 0;
+let finalStars = 3;
+let finalMoves = 0;
+
 
 document.addEventListener("DOMContentLoaded", function(event) { 
     // shuffles deck and creates html for shuffled deck using generateCard function
@@ -54,23 +57,30 @@ document.addEventListener("DOMContentLoaded", function(event) {
             activeCards = [];
             let cards = document.querySelectorAll('.card');
             if(gameIsWon(cards)){
-                alert("Won");
-                window.clearInterval(setInterval);
+                congratsPopup.classList.remove('hide');
+                window.clearInterval(gameTimer);
+                finalMoves = moves;
+                movesCount.innerText = finalMoves;
+                starsCount.innerText = finalStars;
+                finalTime.innerText = timer.innerText;
             }
         }, 350); 
     }
 
     // updates remaining stars based on move count
     function starRating() {
-        if (moves > 40) {
+        if (moves > 80) {
             stars[0].classList.remove('fa-star');
             stars[0].classList.add('fa-star-o');
-        } else if (moves > 20) {
+            finalStars = 0;
+        } else if (moves > 40) {
             stars[1].classList.remove('fa-star');
             stars[1].classList.add('fa-star-o');
-        } else if (moves > 12) {
+            finalStars = 1;
+        } else if (moves > 20) {
             stars[2].classList.remove('fa-star');
             stars[2].classList.add('fa-star-o');
+            finalStars = 2;
         } 
         else {
         }
@@ -108,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     // this is the timer
-    setInterval(function incrementTimer() {
+    let gameTimer = setInterval(function incrementTimer() {
         let timer = document.querySelector('.timer');
         elapsedTime = elapsedTime + 1;
         if (elapsedTime%60 <= 9) {
@@ -126,6 +136,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
     let moveCount = document.querySelector('.moves');
     let stars = document.querySelectorAll('.fa-star');
     let restartButton = document.querySelector('.restart');
+    let starsCount = document.querySelector('.star-count');
+    let movesCount = document.querySelector('.move-count');
+    let congratsPopup = document.querySelector('.winner');
+    let playAgain = document.querySelector('.play-again');
+    let timer = document.querySelector('.timer');
+    let finalTime = document.querySelector('.time-count');
     
 
     // when the restart button is clicked this resets the timer, resets the star rating, and resets the card deck/board
@@ -146,7 +162,38 @@ document.addEventListener("DOMContentLoaded", function(event) {
         stars[1].classList.add('fa-star');
         stars[2].classList.remove('fa-star-o');
         stars[2].classList.add('fa-star');
+        finalStars = 3;
+
+    });
+
+    playAgain.addEventListener("click", function(){
+        congratsPopup.classList.add('hide');
+        elapsedTime = -1;
+        gameTimer = setInterval(function incrementTimer() {
+            elapsedTime = elapsedTime + 1;
+            if (elapsedTime%60 <= 9) {
+                timer.innerText = Math.floor(elapsedTime/60) + ":0" + (elapsedTime%60);
+            } else {
+                timer.innerText = Math.floor(elapsedTime/60) + ":" + (elapsedTime%60);
+            }
+        }, 1000);
         
+        moves = 0;
+        moveCount.innerText = moves;
+        let cards = document.querySelectorAll('.card');
+        cards.forEach(function(card) {
+            card.classList.remove('open', 'show', 'match');
+        });
+        startGame();
+        cards = document.querySelectorAll('.card');
+        registerCards(cards);
+        stars[0].classList.remove('fa-star-o');
+        stars[0].classList.add('fa-star');
+        stars[1].classList.remove('fa-star-o');
+        stars[1].classList.add('fa-star');
+        stars[2].classList.remove('fa-star-o');
+        stars[2].classList.add('fa-star');
+        finalStars = 3;
 
     });
         

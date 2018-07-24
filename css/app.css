@@ -19,6 +19,7 @@ body {
 body {
     background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
+    position: relative;
 }
 
 .container {
@@ -32,6 +33,53 @@ h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
 }
+
+/* 
+ * styles for congratulations popup
+ */
+
+ .winner {
+     position: fixed;
+     height: 100%;
+     width: 100%;
+     background-color: #ffffff;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     margin: 0px;
+     
+ }
+
+ .hide {
+     visibility: hidden;
+ }
+
+ .checkmark {
+     font-size: 72px;
+     color: #90EE90;
+ }
+
+ .winner-text {
+     font-size: 28px;
+     font-family: "Roboto";
+ }
+
+ .winner-stats {
+    font-size: 14px;
+    font-family: "Roboto";
+ }
+
+ .play-again {
+    background-color: #02ccba; 
+    border-radius: 10px;
+    padding: 12px 28px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    color: #ffffff;
+    margin-top: 20px;
+ }
 
 /*
  * Styles for the deck of cards
