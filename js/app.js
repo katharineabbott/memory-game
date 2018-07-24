@@ -12,6 +12,7 @@ let time = 0;
 let elapsedTime = 0;
 
 document.addEventListener("DOMContentLoaded", function(event) { 
+    // shuffles deck and creates html for shuffled deck using generateCard function
     function startGame() {
         let cardDeck = document.querySelector('.deck');
         let cardHTML = shuffle(deck).map(function(card){
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
         return array;
     }
-
+    // updates classes on selected cards when they match
     function match() {
         activeCards.forEach(function(card) {
             card.classList.remove('open', 'show');
@@ -43,6 +44,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         });
     }
     
+    // updates classes on selected cards when they don't match after a slight 
+    // delay and, if the gameIsWon function results in true, triggers the congratulations popup
     function notMatch () {
         setTimeout(function() {
             activeCards.forEach(function(card) {
@@ -57,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }, 350); 
     }
 
+    // updates remaining stars based on move count
     function starRating() {
         if (moves > 40) {
             stars[0].classList.remove('fa-star');
@@ -72,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
     }
 
+    // determines what to do with a card when it is clicked
     function cardClick (card) {
         if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match')) {
             card.classList.add('open', 'show');
@@ -87,10 +92,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
     }
 
+    // checks to see if all cards have the 'match' class
     function gameIsWon(cards) {
         return ((cards[0].classList.contains('match')) && (cards[1].classList.contains('match')) && (cards[2].classList.contains('match')) && (cards[3].classList.contains('match')) && (cards[4].classList.contains('match')) && (cards[5].classList.contains('match')) && (cards[6].classList.contains('match')) && (cards[7].classList.contains('match')) && (cards[8].classList.contains('match')) && (cards[9].classList.contains('match')) && (cards[10].classList.contains('match')) && (cards[11].classList.contains('match')) && (cards[12].classList.contains('match')) && (cards[13].classList.contains('match')) && (cards[14].classList.contains('match')) && (cards[15].classList.contains('match')))
     }
 
+    // adds event listener which calls the cardClick and starRating functions
     function registerCards(cards) {
         cards.forEach(function(card) {
             card.addEventListener("click", function(event) {
@@ -100,6 +107,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         });
     }
 
+    // this is the timer
     setInterval(function incrementTimer() {
         let timer = document.querySelector('.timer');
         elapsedTime = elapsedTime + 1;
@@ -120,6 +128,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     let restartButton = document.querySelector('.restart');
     
 
+    // when the restart button is clicked this resets the timer, resets the star rating, and resets the card deck/board
     restartButton.addEventListener("click", function(){
         elapsedTime = -1;
         moves = 0;
