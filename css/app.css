@@ -161,3 +161,134 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+
+/* responsive css */
+
+/* teensy tiny device portrait */
+@media screen and (min-width: 320px) {
+    .checkmark {
+        font-size: 60px;
+    }
+   
+    .winner-text {
+        font-size: 24px;
+    }
+   
+    .winner-stats {
+       font-size: 12px;
+    }
+   
+    .play-again {
+       font-size: 16px;
+    }
+    
+    .deck {
+        width: 300px;
+        min-height: 300px;
+        padding: 10px;
+        box-shadow: 4px 8px 20px 0 rgba(46, 61, 73, 0.5);
+    }
+    
+    .deck .card {
+        height: 64px;
+        width: 64px;
+    }
+    
+    .deck .card.show {
+        font-size: 26px;
+    }
+    
+    .deck .card.match {
+        font-size: 26px;
+    }
+}
+/* small device portrait */
+@media screen and (min-width: 360px) {
+    h1 {
+        padding-top: 14px;
+        padding-bottom: 6px; 
+    }
+
+    .checkmark {
+        font-size: 68px;
+    }
+   
+    .play-again {
+       font-size: 18px;
+    }
+    
+    .deck {
+        width: 330px;
+        min-height: 330px;
+        padding: 16px;
+        box-shadow: 6px 8px 20px 0 rgba(46, 61, 73, 0.5);
+    }
+    
+    .deck .card {
+        height: 66px;
+        width: 66px;
+    }
+    
+    .deck .card.show {
+        font-size: 28px;
+    }
+    
+    .deck .card.match {
+        font-size: 28px;
+    }
+    
+}
+
+/* small device landscape */
+@media screen and (min-width: 640px) {
+
+}
+
+/* large device */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    h1 {
+        font-size: 48px;
+    }
+
+    .checkmark {
+        font-size: 94px;
+    }
+   
+    .winner-text {
+        font-size: 42px;
+    }
+   
+    .winner-stats {
+       font-size: 20px;
+    }
+   
+    .play-again {
+       font-size: 34px;
+    }
+
+    .score-panel {
+        width: 88%;
+        font-size: 26px;
+    }
+    
+    .deck {
+        width: 660px;
+        min-height: 680px;
+        padding: 32px;
+        box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    }
+    
+    .deck .card {
+        height: 128px;
+        width: 128px;
+    }
+    
+    .deck .card.show {
+        font-size: 50px;
+    }
+    
+    .deck .card.match {
+        font-size: 50px;
+    }
+}
