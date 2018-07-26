@@ -41,9 +41,7 @@ h1 {
     font-weight: 300;
 }
 
-/* 
- * styles for congratulations popup
- */
+/* styles for congratulations popup */
 
  .winner {
     position: fixed;
@@ -55,7 +53,6 @@ h1 {
     align-items: center;
     flex-direction: column;
     margin: 0px;
-    
 }
 
 .hide {
@@ -73,19 +70,19 @@ h1 {
 }
 
 .winner-stats {
-   font-size: 14px;
-   font-family: "Roboto";
+    font-size: 14px;
+    font-family: "Roboto";
 }
 
 .play-again {
-   background-color: #02ccba; 
-   border-radius: 10px;
-   padding: 12px 28px;
-   text-align: center;
-   text-decoration: none;
-   font-size: 12px;
-   color: #ffffff;
-   margin-top: 20px;
+    background-color: #02ccba;
+    border-radius: 10px;
+    padding: 12px 28px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    color: #ffffff;
+    margin-top: 20px;
 }
 
 /*
@@ -169,7 +166,6 @@ h1 {
     cursor: pointer;
 }
 
-
 /* responsive css */
 
 /* teensy tiny device portrait */
@@ -183,11 +179,11 @@ h1 {
     }
    
     .winner-stats {
-       font-size: 12px;
+        font-size: 12px;
     }
    
     .play-again {
-       font-size: 16px;
+        font-size: 16px;
     }
     
     .deck {
@@ -267,7 +263,7 @@ h1 {
 @media screen and (min-width: 360px) and (max-width: 767px) and (orientation: portrait) {
     h1 {
         padding-top: 14px;
-        padding-bottom: 6px; 
+        padding-bottom: 6px;
     }
 
     .checkmark {
@@ -275,7 +271,7 @@ h1 {
     }
    
     .play-again {
-       font-size: 18px;
+        font-size: 18px;
     }
     
     .deck {
@@ -339,11 +335,11 @@ h1 {
     }
    
     .winner-stats {
-       font-size: 20px;
+        font-size: 20px;
     }
    
     .play-again {
-       font-size: 34px;
+        font-size: 34px;
     }
 
     .score-panel {

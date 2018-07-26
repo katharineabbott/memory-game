@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>Matching Game</title>
@@ -10,11 +11,17 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="css/app.css">
 </head>
-<body>  
+
+<body>
     <div class="winner hide">
-        <div class="checkmark"><i class="fa fa-check-circle-o"></i></div>
+        <div class="checkmark">
+            <i class="fa fa-check-circle-o"></i>
+        </div>
         <div class="winner-text">Congratulations! You Won!</div>
-        <div class="winner-stats">With <span class="move-count"></span> moves and <span class="star-count"></span> stars in <span class="time-count"></span>. Woooooo!</div>
+        <div class="winner-stats">With
+            <span class="move-count"></span> moves and
+            <span class="star-count"></span> stars in
+            <span class="time-count"></span>. Woooooo!</div>
         <button class="play-again">Play again!</button>
     </div>
     <div class="container">
@@ -24,11 +31,18 @@
             </header>
             <section class="score-panel">
                 <ul class="stars">
-                    <li><i class="fa fa-star"></i></li>
-                    <li><i class="fa fa-star"></i></li>
-                    <li><i class="fa fa-star"></i></li>
+                    <li>
+                        <i class="fa fa-star"></i>
+                    </li>
+                    <li>
+                        <i class="fa fa-star"></i>
+                    </li>
+                    <li>
+                        <i class="fa fa-star"></i>
+                    </li>
                 </ul>
-                <span><span class="moves">0</span> Moves</span>
+                <span>
+                    <span class="moves">0</span> Moves</span>
                 <span class="timer">0:00</span>
                 <div class="restart">
                     <i class="fa fa-repeat"></i>
@@ -40,4 +54,5 @@
     </div>
     <script src="js/app.js"></script>
 </body>
+
 </html>
