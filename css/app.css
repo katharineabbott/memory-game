@@ -298,29 +298,51 @@ h1 {
 
 /* small device landscape */
 @media screen and (min-width: 640px) and (max-width: 1023px) and (orientation: landscape) {
+    .container {
+        flex-direction: row;
+        height: 100%;
+    }
+
     .game-info {
         order: 1;
         width: 43%;
         margin-top: -50px;
     }
     
-     .play-again {
+    .play-again {
         font-size: 22px;
      }
     
     .deck {
         width: 340px;
         min-height: 340px;
+        padding: 16px;
+        box-shadow: 4px 8px 20px 0 rgba(46, 61, 73, 0.5);
+        margin: 0 0 3em;
+        margin-top: auto;
+        margin-bottom: auto;
+        order: 2;
     }
     
     .deck .card {
         height: 70px;
         width: 70px;
     }
+    .deck .card.show {
+        font-size: 28px;
+    }
+    
+    .deck .card.match {
+        font-size: 28px;
+    }
+    
+    .score-panel {
+        text-align: left;
+        width: 85%;
+    }
 }
 
-
-/* large device */
+/* large device portrait */
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     h1 {
         font-size: 48px;
@@ -370,7 +392,13 @@ h1 {
 
 /* large device landscape */
 @media screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
+    .container {
+        flex-direction: row;
+        height: 100%;
+    }
+
     h1 {
+        text-align: center;
         font-size: 36px;
     }
 
@@ -378,6 +406,8 @@ h1 {
         width: 35%;
         margin-left: -20px;
         margin-right: 20px;
+        margin-top: -50px;
+        order: 1;
     }
     
      .play-again {
@@ -392,7 +422,12 @@ h1 {
     .deck {
         width: 540px;
         min-height: 540px;
+        padding: 16px;
         box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+        margin: 0 0 3em;
+        margin-top: auto;
+        margin-bottom: auto;
+        order: 2;
     }
     
     .deck .card {
@@ -406,5 +441,9 @@ h1 {
     
     .deck .card.match {
         font-size: 50px;
+    }
+    .score-panel {
+        text-align: left;
+        width: 85%;
     }
 }
