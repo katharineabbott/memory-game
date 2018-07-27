@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
         return array;
     }
-    
+
     // updates classes on selected cards when they match
     function match() {
         activeCards.forEach(function (card) {
@@ -89,8 +89,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match')) {
             card.classList.add('open', 'show');
             activeCards.push(card);
-            moves = moves++;
-            moveCount.innerText = moves;
+            moves = moves +1;
+            moveCount.innerText = Math.floor(moves/2);
             if ((activeCards.length === 2) && (activeCards[0].childNodes[0].className === activeCards[1].childNodes[0].className)) {
                 match();
             }
@@ -152,6 +152,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             card.classList.remove('open', 'show', 'match');
         });
         startGame();
+        activeCards = []
         cards = document.querySelectorAll('.card');
         registerCards(cards);
         stars[0].classList.remove('fa-star-o');
